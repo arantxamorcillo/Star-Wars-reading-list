@@ -1,0 +1,30 @@
+.card{
+    background: gray;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.like{
+    border-radius: 8px;
+    color:blue;
+    float:right;
+}
+
+.learn-more{
+    float: left
+}
+
+.list-group{
+    margin: 8px 0px;
+    background-color: gray;
+}
+
+.list-group-item{
+    background-color: gray;
+    border-bottom: 1px solid blue;
+}
+// .details-list{
+
+// }
