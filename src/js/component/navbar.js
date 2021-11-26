@@ -1,17 +1,38 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
+	const [clicked, setclicked] = useState(false);
+
+	const favorites = store.favorites;
+
+	const favorite = favorites.map((x, i) => {
+		return <li key={i}>{x}</li>;
+	});
+
+	const listToHtml = () => {
+		if (favorites.length != 0) {
+			return favorite;
+		} else {
+			return <li>Choose your favorites</li>;
+		}
+	};
+
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
+		<nav className="navbar navbar-dark  mb-3">
 			<Link to="/">
-				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
+				<img
+					className="navbar-brand mb-0 h1"
+					src="https://static-mh.content.disney.io/starwars/assets/navigation/sw_logo_horiz-04368052e188.png"
+				/>
 			</Link>
-			<div className="ml-auto">
-				<Link to="/demo">
-					<button className="btn btn-primary">Check the Context in action</button>
-				</Link>
-			</div>
+
+			<button className="btn btn-outline-primary button-favorites" onClick={() => setclicked(!clicked)}>
+				Favorites <span className="counter">{favorites.length}</span>
+			</button>
+			{clicked ? <ul className="favorites">{listToHtml()}</ul> : ""}
 		</nav>
 	);
 };

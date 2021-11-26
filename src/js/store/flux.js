@@ -12,9 +12,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			details: {},
+			favorites: []
 		},
 		actions: {
+			setFavorites: newfavorite => {
+				const store = getStore();
+				const StoreFavorites = store.favorites;
+				StoreFavorites.push(newfavorite);
+			},
+			setNewDetails: newdetails => {
+				const store = getStore();
+
+				setStore({ details: newdetails });
+			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
