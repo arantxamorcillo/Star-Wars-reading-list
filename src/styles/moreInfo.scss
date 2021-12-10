@@ -1,12 +1,14 @@
-.title{
-    color: white;
-    font-size: 64px;
-}
 .header{
     display: flex;
     flex-direction: row;
     margin: 64px;
 }
+
+.title{
+    color: white;
+    font-size: 64px;
+}
+
 .description{
     border-left: 2px solid blue;
 }

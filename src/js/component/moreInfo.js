@@ -77,7 +77,7 @@ export const MoreInfo = ({ setVisibility, visibility }) => {
 				Vivamus ultricies nisl elit, vel finibus ante aliquet ut. Fusce nec metus quis turpis ultricies pharetra
 				eu ut
 			</h2>
-			<ul>{detailsToHtml()}</ul>
+			<ul className="details-info">{detailsToHtml()}</ul>
 			<button className="btn btn-primary btn-lg" onClick={() => setVisibility(!visibility)}>
 				Back home
 			</button>

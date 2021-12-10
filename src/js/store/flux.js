@@ -19,9 +19,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			setFavorites: newfavorite => {
 				const store = getStore();
-				const StoreFavorites = store.favorites;
-				StoreFavorites.push(newfavorite);
+				const storeFavorites = [...store.favorites, newfavorite];
+				setStore({ favorites: storeFavorites });
 			},
+
+			deleteFavorites: deletefavorite => {
+				const store = getStore();
+				const StoreFavorites = store.favorites;
+				const newFavorites = StoreFavorites.filter(x => x !== deletefavorite);
+				setStore({ favorites: newFavorites });
+			},
+
 			setNewDetails: newdetails => {
 				const store = getStore();
 

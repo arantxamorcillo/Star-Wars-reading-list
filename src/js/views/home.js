@@ -7,7 +7,6 @@ import CardsList from "../component/CardsList";
 export const Home = () => {
 	const [categories, setCategories] = useState({});
 	const [visibility, setVisibility] = useState(true);
-	console.log(visibility);
 
 	useEffect(() => {
 		fetch("https://www.swapi.tech/api")

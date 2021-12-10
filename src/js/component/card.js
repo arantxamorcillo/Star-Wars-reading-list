@@ -8,7 +8,7 @@ import { MoreInfo } from "./moreInfo";
 const Card = ({ item, setVisibility, visibility }) => {
 	const [itemDetails, setitemDetails] = useState({});
 	const { store, actions } = useContext(Context);
-	const [clicked, setClicked] = useState(false);
+	const [className, setClassName] = useState("far fa-heart");
 
 	useEffect(() => {
 		fetch(item.url)
@@ -23,9 +23,15 @@ const Card = ({ item, setVisibility, visibility }) => {
 		setVisibility(!visibility);
 	}
 
-	function handleClick(favorite) {
-		setClicked(!clicked);
-		actions.setFavorites(favorite);
+	function handleClick() {
+		let itemInFavourites = store.favorites.findIndex(fav => fav === item.name) >= 0;
+		if (!itemInFavourites) {
+			setClassName("fas fa-heart");
+			actions.setFavorites(item.name);
+		} else {
+			setClassName("far fa-heart");
+			actions.deleteFavorites(item.name);
+		}
 	}
 
 	const cardToHtml = () => {
@@ -94,8 +100,8 @@ const Card = ({ item, setVisibility, visibility }) => {
 				<button className="btn btn-primary learn-more" onClick={() => ChangetoMoreInfo(itemDetails)}>
 					Learn more
 				</button>
-				<button className="like" onClick={() => handleClick(item.name)}>
-					{clicked ? <i className="fas fa-heart" /> : <i className="far fa-heart" />}
+				<button className="like" onClick={() => handleClick()}>
+					<i className={className} />
 				</button>
 			</div>
 		</div>

@@ -9,7 +9,13 @@ export const Navbar = () => {
 	const favorites = store.favorites;
 
 	const favorite = favorites.map((x, i) => {
-		return <li key={i}>{x}</li>;
+		return (
+			<li key={i}>
+				<span>
+					{x} <button onClick={ev => actions.deleteFavorites(x)}>borrar</button>
+				</span>
+			</li>
+		);
 	});
 
 	const listToHtml = () => {
