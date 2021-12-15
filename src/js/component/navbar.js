@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import propTypes from "prop-types";
 
-export const Navbar = () => {
+export const Navbar = ({ setVisibility, visibility }) => {
 	const { store, actions } = useContext(Context);
 	const [clicked, setclicked] = useState(false);
 
@@ -11,8 +12,11 @@ export const Navbar = () => {
 	const favorite = favorites.map((x, i) => {
 		return (
 			<li key={i}>
-				<span>
-					{x} <button onClick={ev => actions.deleteFavorites(x)}>borrar</button>
+				<span className="favorite">
+					{x}{" "}
+					<button className="btn-outline-primary" onClick={ev => actions.deleteFavorites(x)}>
+						<i className="far fa-trash-alt"></i>
+					</button>
 				</span>
 			</li>
 		);
@@ -32,6 +36,7 @@ export const Navbar = () => {
 				<img
 					className="navbar-brand mb-0 h1"
 					src="https://static-mh.content.disney.io/starwars/assets/navigation/sw_logo_horiz-04368052e188.png"
+					onClick={() => setVisibility(!visibility)}
 				/>
 			</Link>
 
@@ -41,4 +46,9 @@ export const Navbar = () => {
 			{clicked ? <ul className="favorites">{listToHtml()}</ul> : ""}
 		</nav>
 	);
+};
+
+Navbar.propTypes = {
+	setVisibility: propTypes.func,
+	visibility: propTypes.bool
 };

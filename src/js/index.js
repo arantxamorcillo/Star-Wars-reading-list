@@ -11,6 +11,7 @@ import "../styles/cardList.scss";
 import "../styles/card.scss";
 import "../styles/navbar.scss";
 import "../styles/moreInfo.scss";
+import "../styles/cardLoading.scss";
 
 //import your own components
 import Layout from "./layout";

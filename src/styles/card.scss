@@ -1,30 +1,99 @@
 .card{
-    background: gray;
+    background: #4c4c4c;;
     border-radius: 8px;
     display: flex;
+    gap: 16px;
     flex-direction: column;
     color: white;
+    min-height: 350px;
+    min-width: 350px;
 }
 
-.like{
-    border-radius: 8px;
-    color:blue;
-    float:right;
-}
-
-.learn-more{
-    float: left
+.card-title{
+    font-size: 2.3rem;
+    border-bottom: 1px solid #a54646;
+    min-height: 2.3rem;
 }
 
 .list-group{
+    min-height: 200px;
+    display: flex;
+    gap: 8px;
+    font-size: 22px;
+    flex-direction: column;
+    align-items: flex-start;
     margin: 8px 0px;
-    background-color: gray;
+    background-color: transparent;
 }
+
+#like{
+    border-radius: 8px;
+    color:#a54646;
+    border-color: #a54646;
+    float:right;
+    background-color: white;
+}
+
+.learn-more{
+    float: left;
+    background-color:#a54646;
+    border-color: #a54646;
+}
+
+
 
 .list-group-item{
-    background-color: gray;
-    border-bottom: 1px solid blue;
+    background-color: transparent;
+    border:none;
+    min-width: 22px;
+    
 }
-// .details-list{
-
+// .footer{
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
 // }
+
+.btn-primary {
+    background-color:#a54646;
+    border-color: #a54646;
+}
+.btn-outline-primary{
+    color:#a54646;
+    border-color: #a54646;
+}
+
+.btn-primary:hover{
+    background-color:#967272;
+    border-color: #a54646;
+}
+
+.btn-outline-primary:hover{
+    background-color:#967272;
+    border-color: #a54646;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active{
+    background-color:#967272;
+    border-color: #a54646;
+}
+
+#like:not(:disabled):not(.disabled):active{
+    color:#a54646;
+    border-color: #a54646;
+    background-color: white;
+}
+#like:not(:disabled):not(.disabled):hover{
+    color:#a54646;
+    border-color: #a54646;
+    background-color: white;
+}
+.fa-heart:not(:disabled):not(.disabled):active{
+    font-weight: 600;
+
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active{
+    background-color:#967272;
+    border-color: #a54646;
+}

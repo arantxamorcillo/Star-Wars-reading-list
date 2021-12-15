@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "./card";
+import CardLoading from "./CardLoading";
 import propTypes from "prop-types";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -19,7 +20,7 @@ const CardsList = function({ categoriesKey, value, setVisibility, visibility }) 
 		superLargeDesktop: {
 			// the naming can be any, depends on you.
 			breakpoint: { max: 4000, min: 3000 },
-			items: 5
+			items: 6
 		},
 		desktop: {
 			breakpoint: { max: 3000, min: 1024 },
@@ -38,17 +39,22 @@ const CardsList = function({ categoriesKey, value, setVisibility, visibility }) 
 	return (
 		<div className="container">
 			<h2>{categoriesKey.toUpperCase()}</h2>
-			<Carousel responsive={responsive} itemClass="carousel-item-padding-40-px">
-				{items.length !== 0 ? (
-					items.map(item => {
+			{items.length !== 0 ? (
+				<Carousel responsive={responsive} itemClass="carousel-item-padding-40-px">
+					{items.map(item => {
 						return (
 							<Card item={item} key={item.uid} setVisibility={setVisibility} visibility={visibility} />
 						);
-					})
-				) : (
-					<h1>Cargando</h1>
-				)}
-			</Carousel>
+					})}
+				</Carousel>
+			) : (
+				<Carousel responsive={responsive} itemClass="carousel-item-padding-40-px">
+					<CardLoading />
+					<CardLoading />
+					<CardLoading />
+					<CardLoading />
+				</Carousel>
+			)}
 		</div>
 	);
 };

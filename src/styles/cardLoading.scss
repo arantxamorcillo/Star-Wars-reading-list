@@ -1,0 +1,19 @@
+.grey{
+    background-color: grey;
+    border: white; 
+  }
+
+  .animation{
+    width: 100%;
+    height: 56px;
+    background-color: grey;
+    position: relative;
+    animation-name: example;
+    animation-duration: 2s;  
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes example {
+    from {background-color: grey;}
+    to {background-color: rgb(201, 201, 201);}
+  }

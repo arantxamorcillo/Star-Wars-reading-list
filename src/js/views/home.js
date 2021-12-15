@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
 import { MoreInfo } from "../component/moreInfo";
 import CardsList from "../component/CardsList";
+import propTypes from "prop-types";
 
-export const Home = () => {
+export const Home = ({ setVisibility, visibility }) => {
 	const [categories, setCategories] = useState({});
-	const [visibility, setVisibility] = useState(true);
 
 	useEffect(() => {
 		fetch("https://www.swapi.tech/api")
@@ -35,4 +34,8 @@ export const Home = () => {
 	) : (
 		<MoreInfo setVisibility={setVisibility} visibility={visibility} />
 	);
+};
+Home.propTypes = {
+	setVisibility: propTypes.func,
+	visibility: propTypes.bool
 };

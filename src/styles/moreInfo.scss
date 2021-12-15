@@ -1,20 +1,40 @@
 .header{
+    gap: 32px;
     display: flex;
     flex-direction: row;
     margin: 64px;
+    border-bottom: 2px solid #a54646;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-.title{
-    color: white;
-    font-size: 64px;
+.Title{
+    width: auto;
+    color: #727272;
+    font-size: 8.5rem;
 }
 
 .description{
-    border-left: 2px solid blue;
+    width: 70%;
 }
 
 .details-info{
+    font-size: 1.5rem;
+    color: white;
     list-style: none;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+}
+
+.solid{
+    margin: 1rem;
+    border-right: 2px solid #a54646;
+    height: 2rem;
+}
+
+.head{
+    height: 20rem;
 }
